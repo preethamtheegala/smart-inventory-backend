@@ -28,8 +28,11 @@ SECRET_KEY = 'django-insecure-pp@hn&y(44hgas+s4#+@8n9r1b-6m141ufumf+q19x*ub6by$*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    "smart-inventory-backend-xc1s.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 # Application definition
 
@@ -82,7 +85,7 @@ WSGI_APPLICATION = 'inventory.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
+        default=os.getenv('DATABASE_URL')
     )
 }
 
