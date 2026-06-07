@@ -5,23 +5,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework import viewsets
 from .models import Product, Sale
 from .serializers import ProductSerializer, SaleSerializer
-from django.contrib.auth.models import User
 
-@api_view(['GET'])
-def create_default_users(request):
-    if not User.objects.filter(username='owner').exists():
-        User.objects.create_user(
-            username='owner',
-            password='owner123'
-        )
-
-    if not User.objects.filter(username='cashier').exists():
-        User.objects.create_user(
-            username='cashier',
-            password='cashier123'
-        )
-
-    return Response({'message': 'Users created'})
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
