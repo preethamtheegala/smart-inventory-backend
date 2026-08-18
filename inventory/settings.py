@@ -30,6 +30,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "smart-inventory-backend-xc1s.onrender.com",
+    "smart-inventory-system.vercel.app",
+    ".onrender.com",
+    ".vercel.app",
     "localhost",
     "127.0.0.1",
 ]
@@ -131,3 +134,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_ALL_ORIGINS = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+}
